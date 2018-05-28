@@ -62,6 +62,7 @@ def handle_message(event):
     chrome_options.binary_location =  '/app/.apt/usr/bin/google-chrome'
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--headless')
     browser = webdriver.Chrome(executable_path='/app/.chromedriver/bin/chromedriver', chrome_options=chrome_options)
 
 
