@@ -58,6 +58,7 @@ def handle_message(event):
     arg_group_children = 0
 
 
+
     chrome_options = Options()
     chrome_options.binary_location =  '/app/.apt/usr/bin/google-chrome'
     chrome_options.add_argument('--disable-gpu')
