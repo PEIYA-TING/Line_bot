@@ -1,5 +1,6 @@
 line-bot-sdk
 flask 
 numpy
-selenium
-chromedriver
+requests
+BeautifulSoup4
+python3-lxml
