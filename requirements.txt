@@ -3,4 +3,3 @@ flask
 numpy
 requests
 BeautifulSoup4
-python3-lxml
