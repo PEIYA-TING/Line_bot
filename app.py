@@ -59,7 +59,7 @@ def handle_message(event):
 
     option = webdriver.ChromeOptions()
     option.add_argument('--headless')
-    browser = webdriver.Chrome('C:/Users/DING/chromedriver.exe',chrome_options=option) #'C:/Users/DING/chromedriver.exe'
+    browser = webdriver.Chrome(chrome_options=option) #'C:/Users/DING/chromedriver.exe'
 
     url = 'https://www.booking.com/searchresults.zh-tw.html?ss=\"' + str(arg_ss) + '\"&checkin_year=' + str(arg_checkin_year) + '&checkin_month=' + str(arg_checkin_month) + '&checkin_monthday=' + str(arg_checkin_monthday) + '&checkout_year=' + str(arg_checkout_year) +  '&checkout_month=' + str(arg_checkout_month) + '&ckeckout_monthday=' + str(arg_ckeckout_monthday) + '&group_adults=' + str(arg_adults) + '&group_children=' + str(arg_group_children)
 
