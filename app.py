@@ -77,7 +77,9 @@ def handle_message(event):
         
     # print(name_list)
     # print(len(name_list))
-    output = name_list
+    output = ""
+    for i in range(len(name_list)):
+        output =  output + name_list[i]
 
     ####
     message = TextSendMessage(text=output)
