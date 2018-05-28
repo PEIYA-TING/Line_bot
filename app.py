@@ -57,9 +57,18 @@ def handle_message(event):
     arg_adults = 2
     arg_group_children = 0
 
-    option = webdriver.ChromeOptions()
-    option.add_argument('--headless')
-    browser = webdriver.Chrome(r'chromedriver.exe',chrome_options=option) #'C:/Users/DING/chromedriver.exe'
+
+    chrome_options = Options()
+    chrome_options.binary_location =  '/app/.apt/usr/bin/google-chrome'
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--no-sandbox')
+    browser = webdriver.Chrome(executable_path='/app/.chromedriver/bin/chromedriver', chrome_options=chrome_options)
+
+
+
+    # option = webdriver.ChromeOptions()
+    # option.add_argument('--headless')
+    # browser = webdriver.Chrome(r'chromedriver.exe',chrome_options=option) #'C:/Users/DING/chromedriver.exe'
 
     url = 'https://www.booking.com/searchresults.zh-tw.html?ss=\"' + str(arg_ss) + '\"&checkin_year=' + str(arg_checkin_year) + '&checkin_month=' + str(arg_checkin_month) + '&checkin_monthday=' + str(arg_checkin_monthday) + '&checkout_year=' + str(arg_checkout_year) +  '&checkout_month=' + str(arg_checkout_month) + '&ckeckout_monthday=' + str(arg_ckeckout_monthday) + '&group_adults=' + str(arg_adults) + '&group_children=' + str(arg_group_children)
 
