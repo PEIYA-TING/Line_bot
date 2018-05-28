@@ -80,10 +80,10 @@ def handle_message(event):
     output = name_list[0]
 
     ####
-    message = TextSendMessage(text=event.message.text)
+    message = TextSendMessage(text=output)
     line_bot_api.reply_message(
         event.reply_token,
-        output)
+        message)
 
 import os
 if __name__ == "__main__":
