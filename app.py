@@ -77,7 +77,7 @@ def handle_message(event):
         
     # print(name_list)
     # print(len(name_list))
-    output = name_list
+    output = name_list[0]
 
     ####
     message = TextSendMessage(text=event.message.text)
