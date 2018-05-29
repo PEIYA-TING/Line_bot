@@ -116,13 +116,23 @@ def handle_message(event):
     for i in range(len(pic)):
         pic_url.append(pic[i].attrib['src'])
 
+    hotel_df = pd.DataFrame({"Hotel_name":name_list,"Hotel_url":u_total,"Hotel_score":score,"Hotel_pic":pic_url})
+    hotel_df = hotel_df.sort_values(by = ['Hotel_score'],ascending=False).reset_index(drop=True)
     
     output = ""
-    for i in range(len(name_list)):
-        tmp = name_list[i] + " " + u_total[i] + " " + score[i]
-        output = output + tmp 
+    for i in range(len(hotel_df)):
+        tmp = hotel_df[i,0] + " " + hotel_df[i,1] + " " + hotel_df[i,2]
+        output = output + tmp
         output = output + "\n"
         tmp = ""
+
+    
+    # output = ""
+    # for i in range(len(name_list)):
+    #     tmp = name_list[i] + " " + u_total[i] + " " + score[i]
+    #     output = output + tmp 
+    #     output = output + "\n"
+    #     tmp = ""
 
     ####
     
