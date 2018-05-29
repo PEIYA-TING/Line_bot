@@ -57,16 +57,19 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
+    input_str = event.message.text
+
+
     ##
-    arg_ss = "桃園"
-    arg_checkin_year = 2018
-    arg_checkin_month = 6
-    arg_checkin_monthday= 14
-    arg_checkout_year = 2018
-    arg_checkout_month = 6
-    arg_ckeckout_monthday = 20
-    arg_adults = 2
-    arg_group_children = 0
+    arg_ss = input_str.split()[0]
+    arg_checkin_year = input_str.split()[1]
+    arg_checkin_month = input_str.split()[2]
+    arg_checkin_monthday= input_str.split()[3]
+    arg_checkout_year = input_str.split()[4]
+    arg_checkout_month = input_str.split()[5]
+    arg_ckeckout_monthday = input_str.split()[6]
+    arg_adults = input_str.split()[7]
+    arg_group_children = input_str.split()[8]
     url = 'https://www.booking.com/searchresults.zh-tw.html?ss=\"' + str(arg_ss) + '\"&checkin_year=' + str(arg_checkin_year) + '&checkin_month=' + str(arg_checkin_month) + '&checkin_monthday=' + str(arg_checkin_monthday) + '&checkout_year=' + str(arg_checkout_year) +  '&checkout_month=' + str(arg_checkout_month) + '&ckeckout_monthday=' + str(arg_ckeckout_monthday) + '&group_adults=' + str(arg_adults) + '&group_children=' + str(arg_group_children)
     ##
 
