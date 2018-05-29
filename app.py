@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from lxml import html, etree
 import os
 import re
+import pandas as pd
 
 from flask import Flask, request, abort
 
