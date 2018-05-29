@@ -41,22 +41,34 @@ def callback():
 
     return 'OK'
 
-##
-arg_ss = "桃園"
-arg_checkin_year = 2018
-arg_checkin_month = 6
-arg_checkin_monthday= 14
-arg_checkout_year = 2018
-arg_checkout_month = 6
-arg_ckeckout_monthday = 20
-arg_adults = 2
-arg_group_children = 0
-url = 'https://www.booking.com/searchresults.zh-tw.html?ss=\"' + str(arg_ss) + '\"&checkin_year=' + str(arg_checkin_year) + '&checkin_month=' + str(arg_checkin_month) + '&checkin_monthday=' + str(arg_checkin_monthday) + '&checkout_year=' + str(arg_checkout_year) +  '&checkout_month=' + str(arg_checkout_month) + '&ckeckout_monthday=' + str(arg_ckeckout_monthday) + '&group_adults=' + str(arg_adults) + '&group_children=' + str(arg_group_children)
-
-##
+# ##
+# arg_ss = "桃園"
+# arg_checkin_year = 2018
+# arg_checkin_month = 6
+# arg_checkin_monthday= 14
+# arg_checkout_year = 2018
+# arg_checkout_month = 6
+# arg_ckeckout_monthday = 20
+# arg_adults = 2
+# arg_group_children = 0
+# url = 'https://www.booking.com/searchresults.zh-tw.html?ss=\"' + str(arg_ss) + '\"&checkin_year=' + str(arg_checkin_year) + '&checkin_month=' + str(arg_checkin_month) + '&checkin_monthday=' + str(arg_checkin_monthday) + '&checkout_year=' + str(arg_checkout_year) +  '&checkout_month=' + str(arg_checkout_month) + '&ckeckout_monthday=' + str(arg_ckeckout_monthday) + '&group_adults=' + str(arg_adults) + '&group_children=' + str(arg_group_children)
+# ##
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+
+    ##
+    arg_ss = "桃園"
+    arg_checkin_year = 2018
+    arg_checkin_month = 6
+    arg_checkin_monthday= 14
+    arg_checkout_year = 2018
+    arg_checkout_month = 6
+    arg_ckeckout_monthday = 20
+    arg_adults = 2
+    arg_group_children = 0
+    url = 'https://www.booking.com/searchresults.zh-tw.html?ss=\"' + str(arg_ss) + '\"&checkin_year=' + str(arg_checkin_year) + '&checkin_month=' + str(arg_checkin_month) + '&checkin_monthday=' + str(arg_checkin_monthday) + '&checkout_year=' + str(arg_checkout_year) +  '&checkout_month=' + str(arg_checkout_month) + '&ckeckout_monthday=' + str(arg_ckeckout_monthday) + '&group_adults=' + str(arg_adults) + '&group_children=' + str(arg_group_children)
+    ##
 
     ####
     result = requests.get(url)  
@@ -75,13 +87,42 @@ def handle_message(event):
         a = name[i].contents
         name_list.append(a[0].split("\n")[1])
         
-    # print(name_list)
-    # print(len(name_list))
+    
+
+    link = root.xpath("//a[@class='hotel_name_link url']")
+    # print(soup.select('.hotel_name_link'))
+    u_total = []
+    u1 = "https://www.booking.com/"
+    for i in range(len(link)):
+        u2 = link[i].attrib['href'].split("\n")[1] #https://www.booking.com/hotel/tw/beginning-hostel.zh-tw.html#hotelTmpl
+        u3 = link[i].attrib['href'].split("\n")[2]
+        u_total.append(u1 + u2 + u3)
+
+
+    num = root.xpath("//span[@class='review-score-badge']")
+    score = []
+
+    for i in range(len(num)):
+        number = mode.findall(num[i].text)[0]
+        score.append(number)
+
+
+    pic = root.xpath("//img[@class='hotel_image']")
+    pic_url = []
+
+    for i in range(len(pic)):
+        pic_url.append(pic[i].attrib['src'])
+
+    
     output = ""
     for i in range(len(name_list)):
-        output =  output + name_list[i]
+        tmp = name_list[i] + " " + u_total[i] + " " + score[i]
+        output = output + tmp 
+        output = output + "\n"
+        tmp = ""
 
     ####
+    
     message = TextSendMessage(text=output)
     line_bot_api.reply_message(
         event.reply_token,
