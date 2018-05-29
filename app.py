@@ -122,7 +122,7 @@ def handle_message(event):
     
     output = ""
     for i in range(len(hotel_df)):
-        tmp = hotel_df[i,0] + " " + hotel_df[i,1] + " " + hotel_df[i,2]
+        tmp = hotel_df.iloc[i,0] + " " + hotel_df.iloc[i,1] + " " + hotel_df.iloc[i,2]
         output = output + tmp
         output = output + "\n"
         tmp = ""
