@@ -4,3 +4,4 @@ numpy
 requests
 BeautifulSoup4
 lxml
+pandas
