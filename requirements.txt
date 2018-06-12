@@ -6,5 +6,4 @@ BeautifulSoup4
 lxml
 pandas
 Scrapy
-ssl
 urllib
