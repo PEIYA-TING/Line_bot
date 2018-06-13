@@ -85,24 +85,24 @@ def handle_message(event):
         a = name[i].contents
         name_list.append(a[0].split("\n")[1])
 
-    ### Hotel Price ###
-    #price availprice no_rack_rate
-    price_list = soup.find_all("strong", {"class":"price"})
-    prices_list = []
+    # ### Hotel Price ###
+    # #price availprice no_rack_rate
+    # price_list = soup.find_all("strong", {"class":"price"})
+    # prices_list = []
 
-    for price in price_list:  
-    #     print(price.text.replace(u'\xa0', u' ').replace("\n", "").split()[1])
-        p = price.text.replace(u'\xa0', u' ').replace("\n", "").split()[1]
+    # for price in price_list:  
+    # #     print(price.text.replace(u'\xa0', u' ').replace("\n", "").split()[1])
+    #     p = price.text.replace(u'\xa0', u' ').replace("\n", "").split()[1]
         
-        if len(p) > 3:
-            c = p.split(',')
-            Price = c[0] + c[1]
-            Price = int(Price)
+    #     if len(p) > 3:
+    #         c = p.split(',')
+    #         Price = c[0] + c[1]
+    #         Price = int(Price)
         
-        else:
-            Price = int(p)
+    #     else:
+    #         Price = int(p)
             
-        prices_list.append(Price)
+    #     prices_list.append(Price)
 
     ### Hotel Score ###
     star = soup.find_all("span",{"class":"review-score-badge"})
@@ -132,20 +132,22 @@ def handle_message(event):
         img_list.append(img_url[i].get('src'))
 
     length = min(len(name_list),len(prices_list),len(star),len(link),len(img_url))
+    length = min(len(name_list),len(star),len(link),len(img_url))
+
 
     print("===================================")
-    print(len(prices_list))
+    print(len(length))
     print("===================================")
 
     end = length - 2
     name_list = name_list[0:end]
-    prices_list = prices_list[0:end]
+    # prices_list = prices_list[0:end]
     url_list = url_list[0:end]
     score_list = score_list[0:end]
     img_list = img_list[0:end]
 
-    hotel_df = pd.DataFrame({"Hotel_name":name_list,"Hotel_price":prices_list,"Hotel_url":url_list,"Hotel_score":score_list,"Hotel_pic":img_list})
-    hotel_df = hotel_df.sort_values(by = ['Hotel_score','Hotel_price'],ascending=False).reset_index(drop=True)
+    hotel_df = pd.DataFrame({"Hotel_name":name_list,"Hotel_url":url_list,"Hotel_score":score_list,"Hotel_pic":img_list}) #"Hotel_price":prices_list,
+    hotel_df = hotel_df.sort_values(by = ['Hotel_score'],ascending=False).reset_index(drop=True)
 
     output = ""
     for i in range(6):
