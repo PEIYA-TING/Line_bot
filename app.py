@@ -136,7 +136,7 @@ def handle_message(event):
 
 
     print("===================================")
-    print(len(length))
+    print(length)
     print("===================================")
 
     end = length - 2
