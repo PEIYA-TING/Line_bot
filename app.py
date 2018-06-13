@@ -133,7 +133,9 @@ def handle_message(event):
 
     length = min(len(name_list),len(prices_list),len(star),len(link),len(img_url))
 
+    print("===================================")
     print(length)
+    print("===================================")
 
     end = length - 2
     name_list = name_list[0:end]
