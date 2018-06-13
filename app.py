@@ -137,7 +137,7 @@ def handle_message(event):
 
 
     print("===================================")
-    print(length)
+    print(len(prices_list))
     print("===================================")
 
     end = length - 2
