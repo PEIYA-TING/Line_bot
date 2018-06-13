@@ -127,7 +127,7 @@ def handle_message(event):
     #     output = output + "\n"
     #     tmp = ""
 
-    output ="onetwothree"
+    output =hotel_df.iloc[1,0] + " " + hotel_df.iloc[1,1] + " " + hotel_df.iloc[1,2]
     # output = ""
     # for i in range(len(name_list)):
     #     tmp = name_list[i] + " " + u_total[i] + " " + score[i]
