@@ -6,3 +6,4 @@ BeautifulSoup4
 lxml
 pandas
 Scrapy
+urllib3
