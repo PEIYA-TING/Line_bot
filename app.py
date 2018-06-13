@@ -120,14 +120,14 @@ def handle_message(event):
     hotel_df = pd.DataFrame({"Hotel_name":name_list,"Hotel_url":u_total,"Hotel_score":score,"Hotel_pic":pic_url})
     hotel_df = hotel_df.sort_values(by = ['Hotel_score'],ascending=False).reset_index(drop=True)
     
-    # output = ""
-    # for i in range(len(hotel_df)):
-    #     tmp = hotel_df.iloc[i,0] + " " + hotel_df.iloc[i,1] + " " + hotel_df.iloc[i,2]
-    #     output = output + tmp
-    #     output = output + "\n"
-    #     tmp = ""
+    output = ""
+    for i in range(6):
+        tmp = hotel_df.iloc[i,0] + " " + hotel_df.iloc[i,1] + " " + hotel_df.iloc[i,2]
+        output = output + tmp
+        output = output + "\n"
+        tmp = ""
 
-    output =hotel_df.iloc[1,0] + " " + hotel_df.iloc[1,1] + " " + hotel_df.iloc[1,2]
+    # output =hotel_df.iloc[1,0] + " " + hotel_df.iloc[1,1] + " " + hotel_df.iloc[1,2]
     # output = ""
     # for i in range(len(name_list)):
     #     tmp = name_list[i] + " " + u_total[i] + " " + score[i]
