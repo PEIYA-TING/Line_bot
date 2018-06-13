@@ -86,24 +86,24 @@ def handle_message(event):
         a = name[i].contents
         name_list.append(a[0].split("\n")[1])
 
-    # ### Hotel Price ###
-    # #price availprice no_rack_rate
-    # price_list = soup.find_all("strong", {"class":"price"})
-    # prices_list = []
+    ### Hotel Price ###
+    #price availprice no_rack_rate
+    price_list = soup.find_all("strong", {"class":"price"})
+    prices_list = []
 
-    # for price in price_list:  
-    # #     print(price.text.replace(u'\xa0', u' ').replace("\n", "").split()[1])
-    #     p = price.text.replace(u'\xa0', u' ').replace("\n", "").split()[1]
+    for price in price_list:  
+    #     print(price.text.replace(u'\xa0', u' ').replace("\n", "").split()[1])
+        p = price.text.replace(u'\xa0', u' ').replace("\n", "").split()[1]
         
-    #     if len(p) > 3:
-    #         c = p.split(',')
-    #         Price = c[0] + c[1]
-    #         Price = int(Price)
+        if len(p) > 3:
+            c = p.split(',')
+            Price = c[0] + c[1]
+            Price = int(Price)
         
-    #     else:
-    #         Price = int(p)
+        else:
+            Price = int(p)
             
-    #     prices_list.append(Price)
+        prices_list.append(Price)
 
     ### Hotel Score ###
     star = soup.find_all("span",{"class":"review-score-badge"})
