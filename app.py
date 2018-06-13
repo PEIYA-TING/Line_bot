@@ -131,7 +131,7 @@ def handle_message(event):
     for i in range(len(img_url)):
         img_list.append(img_url[i].get('src'))
 
-    length = min(len(name_list),len(prices_list),len(star),len(link),len(img_url))
+    # length = min(len(name_list),len(prices_list),len(star),len(link),len(img_url))
     length = min(len(name_list),len(star),len(link),len(img_url))
 
 
