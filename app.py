@@ -161,7 +161,7 @@ def handle_message(event):
         alt_text='最推薦的六個訂房',
         columns=[
             CarouselColumn(
-                thumbnail_image_url=,'https://www.booking.com//hotel/jp/apa-kagoshima-chuo-ekimae.zh-tw.html?label=gen173nr-1FCAQoggJCD3NlYXJjaF8i5pel5pysIkgwWARo5wGIAQGYATDCAQp3aW5kb3dzIDEwyAEM2AEB6AEB-AEDkgIBeagCAw&sid=606abe0cd19d32db3bb0260cccca9325&ucfs=1&srpvid=76b7816ee2ae0068&srepoch=1529000669&room1=A,A&hpos=10&hapos=10&dest_type=country&dest_id=106&srfid=8b3d8146e873701e85cfea4733f513e7b6fc7186X10&from=searchresults;highlight_room=#hotelTmpl'
+                thumbnail_image_url='https://www.booking.com//hotel/jp/apa-kagoshima-chuo-ekimae.zh-tw.html?label=gen173nr-1FCAQoggJCD3NlYXJjaF8i5pel5pysIkgwWARo5wGIAQGYATDCAQp3aW5kb3dzIDEwyAEM2AEB6AEB-AEDkgIBeagCAw&sid=606abe0cd19d32db3bb0260cccca9325&ucfs=1&srpvid=76b7816ee2ae0068&srepoch=1529000669&room1=A,A&hpos=10&hapos=10&dest_type=country&dest_id=106&srfid=8b3d8146e873701e85cfea4733f513e7b6fc7186X10&from=searchresults;highlight_room=#hotelTmpl',
                 title = hotel_df.iloc[0,0],
                 text = 'hotel 1',
                 actions=[
