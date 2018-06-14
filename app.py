@@ -161,12 +161,12 @@ def handle_message(event):
         alt_text='最推薦的六個訂房',
         columns=[
             CarouselColumn(
-                # thumbnail_image_url=hotel_df.iloc[0,3],
-                title = 'hotel_df.iloc[0,0]',
+                thumbnail_image_url=hotel_df.iloc[0,3],
+                title = hotel_df.iloc[0,0],
                 text = 'hotel 1',
                 actions=[
                     URITemplateAction(
-                        label='旅館為：',
+                        label='旅館為：'+str(hotel_df.iloc[0,0]),
                         uri=hotel_df.iloc[0,1]
                     )
                 ]
@@ -185,7 +185,7 @@ def handle_message(event):
     # output = hotel_df.iloc[0,3]
 
     ####
-    
+    Carousel_template = hotel_df.iloc[0,3]
     # message = TextSendMessage(text=output)
     line_bot_api.reply_message(
         event.reply_token,
