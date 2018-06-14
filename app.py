@@ -157,9 +157,8 @@ def handle_message(event):
     hotel_df = hotel_df[:6]
     hotel_df = hotel_df[["Hotel_name","Hotel_url","Hotel_score","Hotel_pic"]]
 
-    Carousel_template = CarouselTemplate(
+    message = TemplateSendMessage(
         alt_text='最推薦的六個訂房',
-
         columns=[
             CarouselColumn(
                 thumbnail_image_url=hotel_df.iloc[0,3],
@@ -205,11 +204,11 @@ def handle_message(event):
     #     output = output + tmp
     #     output = output + "\n"
     #     tmp = ""
-    output = hotel_df.iloc[0,3]
+    # output = hotel_df.iloc[0,3]
 
     ####
     
-    message = TextSendMessage(text=output)
+    # message = TextSendMessage(text=output)
     line_bot_api.reply_message(
         event.reply_token,
         message) #message #Carousel_template
