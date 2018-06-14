@@ -157,7 +157,7 @@ def handle_message(event):
     hotel_df = hotel_df[:6]
     hotel_df = hotel_df[["Hotel_name","Hotel_url","Hotel_score","Hotel_pic"]]
 
-    Carousel_template = TemplateSendMessage(
+    Carousel_template = CarouselTemplate(
         alt_text='最推薦的六個訂房',
         columns=[
             CarouselColumn(
@@ -168,28 +168,6 @@ def handle_message(event):
                     URITemplateAction(
                         label='旅館為：'+str(hotel_df.iloc[0,0]),
                         uri=hotel_df.iloc[0,1]
-                    )
-                ]
-            ),
-            CarouselColumn(
-                thumbnail_image_url=hotel_df.iloc[1,3],
-                title = hotel_df.iloc[1,0],
-                text = 'hotel 2',
-                actions=[
-                    URITemplateAction(
-                        label='旅館為：'+str(hotel_df.iloc[1,0]),
-                        uri=hotel_df.iloc[1,1]
-                    )
-                ]
-            ),
-            CarouselColumn(
-                thumbnail_image_url=hotel_df.iloc[2,3],
-                title = hotel_df.iloc[2,0],
-                text = 'hotel 3',
-                actions=[
-                    URITemplateAction(
-                        label='旅館為：'+str(hotel_df.iloc[2,0]),
-                        uri=hotel_df.iloc[2,1]
                     )
                 ]
             )
