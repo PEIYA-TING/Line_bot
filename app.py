@@ -205,14 +205,14 @@ def handle_message(event):
     #     output = output + tmp
     #     output = output + "\n"
     #     tmp = ""
-
+    output = hotel_df.iloc[0,3]
 
     ####
     
-    # message = TextSendMessage(text=output)
+    message = TextSendMessage(text=output)
     line_bot_api.reply_message(
         event.reply_token,
-        Carousel_template) #message
+        message) #message #Carousel_template
 
 import os
 if __name__ == "__main__":
