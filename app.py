@@ -171,8 +171,7 @@ def handle_message(event):
                         uri=hotel_df.iloc[0,1]
                     )
                 ]
-            )],
-        columns=[
+            ),
             CarouselColumn(
                 thumbnail_image_url=hotel_df.iloc[1,3],
                 title = hotel_df.iloc[1,0],
@@ -183,8 +182,7 @@ def handle_message(event):
                         uri=hotel_df.iloc[1,1]
                     )
                 ]
-            )],
-        columns=[
+            ),
             CarouselColumn(
                 thumbnail_image_url=hotel_df.iloc[2,3],
                 title = hotel_df.iloc[2,0],
@@ -195,7 +193,9 @@ def handle_message(event):
                         uri=hotel_df.iloc[2,1]
                     )
                 ]
-            )]
+            )
+        ]     
+
     )
 
     ##################
