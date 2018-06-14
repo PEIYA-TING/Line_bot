@@ -182,7 +182,7 @@ def handle_message(event):
     #     output = output + tmp
     #     output = output + "\n"
     #     tmp = ""
-    output = hotel_df.iloc[0,0]
+    output = hotel_df.iloc[0,1]
 
     ####
     # Carousel_template = hotel_df.iloc[0,3]
