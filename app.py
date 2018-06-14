@@ -16,8 +16,12 @@ from linebot import (
 from linebot.exceptions import (
     InvalidSignatureError
 )
+# from linebot.models import (
+#     MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
+# )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
+    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage, LocationMessage, TemplateSendMessage,
+    ButtonsTemplate, CarouselTemplate, PostbackTemplateAction, CarouselColumn , URITemplateAction
 )
 
 app = Flask(__name__)
@@ -150,20 +154,65 @@ def handle_message(event):
     hotel_df = pd.DataFrame({"Hotel_name":name_list,"Hotel_url":url_list,"Hotel_score":score_list,"Hotel_pic":img_list}) #"Hotel_price":prices_list,
     hotel_df = hotel_df.sort_values(by = ['Hotel_score'],ascending=False).reset_index(drop=True)
 
-    output = ""
-    for i in range(6):
-        tmp = hotel_df.iloc[i,0] + " " + hotel_df.iloc[i,1] + " " + hotel_df.iloc[i,2]
-        output = output + tmp
-        output = output + "\n"
-        tmp = ""
+    hotel_df = hotel_df[:6]
+    hotel_df = hotel_df[["Hotel_name","Hotel_url","Hotel_score","Hotel_pic"]]
+
+    Carousel_template = CarouselTemplate(
+        alt_text='最推薦的六個訂房',
+
+        columns=[
+            CarouselColumn(
+                thumbnail_image_url=hotel_df.iloc[0,3],
+                title = hotel_df.iloc[0,0],
+                text = 'hotel 1',
+                actions=[
+                    URITemplateAction(
+                        label='旅館為：'+str(hotel_df.iloc[0,0])+'，評分為：'str(hotel_df.iloc[0,2]),
+                        uri=hotel_df.iloc[0,1]
+                    )
+                ]
+            )],
+        columns=[
+            CarouselColumn(
+                thumbnail_image_url=hotel_df.iloc[1,3],
+                title = hotel_df.iloc[1,0],
+                text = 'hotel 2',
+                actions=[
+                    URITemplateAction(
+                        label='旅館為：'+str(hotel_df.iloc[1,0])+'，評分為：'str(hotel_df.iloc[1,2]),
+                        uri=hotel_df.iloc[1,1]
+                    )
+                ]
+            )],
+        columns=[
+            CarouselColumn(
+                thumbnail_image_url=hotel_df.iloc[2,3],
+                title = hotel_df.iloc[2,0],
+                text = 'hotel 3',
+                actions=[
+                    URITemplateAction(
+                        label='旅館為：'+str(hotel_df.iloc[2,0])+'，評分為：'str(hotel_df.iloc[2,2]),
+                        uri=hotel_df.iloc[2,1]
+                    )
+                ]
+            )]
+    )
+
+    ##################
+    # output = ""
+    # for i in range(6):
+    #     tmp = hotel_df.iloc[i,0] + " " + hotel_df.iloc[i,1] + " " + hotel_df.iloc[i,2]
+    #     output = output + tmp
+    #     output = output + "\n"
+    #     tmp = ""
 
 
     ####
     
-    message = TextSendMessage(text=output)
+    # message = TextSendMessage(text=output)
     line_bot_api.reply_message(
         event.reply_token,
-        message)
+        Carousel_template) #message
 
 import os
 if __name__ == "__main__":
