@@ -174,7 +174,7 @@ def handle_message(event):
             columns=[
                 CarouselColumn(
                     thumbnail_image_url=hotel_df.iloc[0,3],
-                    title = 'hotel 1',
+                    title = hotel_df.iloc[0,0][:20],
                     text = 'hotel 1',
                     actions=[
                         URITemplateAction(
@@ -185,7 +185,7 @@ def handle_message(event):
                 ),
                 CarouselColumn(
                     thumbnail_image_url=hotel_df.iloc[1,3],
-                    title = 'hotel 2',
+                    title = hotel_df.iloc[1,0][:20],
                     text = 'hotel 2',
                     actions=[
                         URITemplateAction(
@@ -196,7 +196,7 @@ def handle_message(event):
                 ),
                 CarouselColumn(
                     thumbnail_image_url=hotel_df.iloc[2,3],
-                    title = 'hotel 3',
+                    title = hotel_df.iloc[2,0][:20],
                     text = 'hotel 3',
                     actions=[
                         URITemplateAction(
@@ -207,7 +207,7 @@ def handle_message(event):
                 ),
                 CarouselColumn(
                     thumbnail_image_url=hotel_df.iloc[3,3],
-                    title = 'hotel 4',
+                    title = hotel_df.iloc[3,0][:20],
                     text = 'hotel 4',
                     actions=[
                         URITemplateAction(
@@ -218,7 +218,7 @@ def handle_message(event):
                 ),
                 CarouselColumn(
                     thumbnail_image_url=hotel_df.iloc[4,3],
-                    title = 'hotel 5',
+                    title = hotel_df.iloc[4,0][:20],
                     text = 'hotel 5',
                     actions=[
                         URITemplateAction(
