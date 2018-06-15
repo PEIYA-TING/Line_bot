@@ -137,7 +137,7 @@ def handle_message(event):
         img_list.append(img_url[i].get('src'))
 
 
-    try:
+    # try:
 
         # length = min(len(name_list),len(prices_list),len(star),len(link),len(img_url))
         length = min(len(name_list),len(star),len(link),len(img_url))
@@ -218,10 +218,10 @@ def handle_message(event):
         # print(len(template_message))
         # print("===================================")
 
-    except:
-        error_message = "Error"
-        message = TextSendMessage(text=error_message)
-        line_bot_api.reply_message(event.reply_token,message)
+    # except:
+    #     error_message = "Error"
+    #     message = TextSendMessage(text=error_message)
+    #     line_bot_api.reply_message(event.reply_token,message)
 
     ##################
     # output = ""
