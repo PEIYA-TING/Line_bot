@@ -145,6 +145,10 @@ def handle_message(event):
 
     print("===================================")
     print(length)
+    print(len(name_list))
+    print(len(star))
+    print(len(link))
+    print(len(img_url))
     print("===================================")
 
     end = length - 2
