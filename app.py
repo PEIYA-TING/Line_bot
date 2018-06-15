@@ -174,8 +174,8 @@ def handle_message(event):
             columns=[
                 CarouselColumn(
                     thumbnail_image_url=hotel_df.iloc[0,3],
-                    title = hotel_df.iloc[0,0][:25],
-                    text = 'hotel 1',
+                    title = hotel_df.iloc[0,0][:20],
+                    text = '(⊙０⊙)首推訂房(⊙０⊙)',
                     actions=[
                         URITemplateAction(
                             label='評分為：'+str(hotel_df.iloc[0,2]),
@@ -186,7 +186,7 @@ def handle_message(event):
                 CarouselColumn(
                     thumbnail_image_url=hotel_df.iloc[1,3],
                     title = hotel_df.iloc[1,0][:20],
-                    text = 'hotel 2',
+                    text = '(⊙ˍ⊙)激推訂房(⊙ˍ⊙)',
                     actions=[
                         URITemplateAction(
                             label='評分為：'+str(hotel_df.iloc[1,2]),
@@ -197,7 +197,7 @@ def handle_message(event):
                 CarouselColumn(
                     thumbnail_image_url=hotel_df.iloc[2,3],
                     title = hotel_df.iloc[2,0][:20],
-                    text = 'hotel 3',
+                    text = '(ˊ● ω ●ˋ)再推訂房(ˊ● ω ●ˋ)',
                     actions=[
                         URITemplateAction(
                             label='評分為：'+str(hotel_df.iloc[2,2]),
@@ -208,7 +208,7 @@ def handle_message(event):
                 CarouselColumn(
                     thumbnail_image_url=hotel_df.iloc[3,3],
                     title = hotel_df.iloc[3,0][:20],
-                    text = 'hotel 4',
+                    text = '(♡∀♡)再推一個(♡∀♡)',
                     actions=[
                         URITemplateAction(
                             label='評分為：'+str(hotel_df.iloc[3,2]),
@@ -219,7 +219,7 @@ def handle_message(event):
                 CarouselColumn(
                     thumbnail_image_url=hotel_df.iloc[4,3],
                     title = hotel_df.iloc[4,0][:20],
-                    text = 'hotel 5',
+                    text = '(´･ω･`)選我選我(´･ω･`)',
                     actions=[
                         URITemplateAction(
                             label='評分為：'+str(hotel_df.iloc[4,2]),
