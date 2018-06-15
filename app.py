@@ -174,7 +174,7 @@ def handle_message(event):
             columns=[
                 CarouselColumn(
                     thumbnail_image_url=hotel_df.iloc[0,3],
-                    title = hotel_df.iloc[0,0][:20],
+                    title = hotel_df.iloc[0,0][:25],
                     text = 'hotel 1',
                     actions=[
                         URITemplateAction(
@@ -231,7 +231,7 @@ def handle_message(event):
         )
 
     except:
-        error_message = "Error"
+        error_message = "很抱歉，查無資料!"
         message = TextSendMessage(text=error_message)
         line_bot_api.reply_message(event.reply_token,message)
 
@@ -248,7 +248,7 @@ def handle_message(event):
     # Carousel_template = hotel_df.iloc[0,3]
     # message = TextSendMessage(text=output)
     template_message = TemplateSendMessage(
-        alt_text = '距離最近的六間旅館', 
+        alt_text = '距離最近的五間旅館', 
         template = carousel_template
     )
     
