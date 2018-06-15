@@ -209,8 +209,8 @@ def handle_message(event):
     # Carousel_template = hotel_df.iloc[0,3]
     # message = TextSendMessage(text=output)
     template_message = TemplateSendMessage(
-            alt_text = '距離最近的六間旅館', 
-            template = carousel_template
+        alt_text = '距離最近的六間旅館', 
+        template = carousel_template
     )
     
     line_bot_api.reply_message(event.reply_token, template_message)
