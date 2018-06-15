@@ -173,7 +173,7 @@ def handle_message(event):
                 text = 'hotel 1',
                 actions=[
                     URITemplateAction(
-                        label='旅館為：'+str(hotel_df.iloc[0,0]),
+                        label='評分為：'+str(hotel_df.iloc[0,2]),
                         uri=hotel_df.iloc[0,1]
                     )
                 ]
@@ -185,7 +185,7 @@ def handle_message(event):
                 actions=[
                     URITemplateAction(
                         #label='旅館為：'+str(hotel_df.iloc[1,0])+'，評分為：'+str(hotel_df.iloc[1,2]),
-                        label='旅館為：'+str(hotel_df.iloc[1,0]),
+                        label='評分為：'+str(hotel_df.iloc[1,2]),
                         uri=hotel_df.iloc[1,1]
                     )
                 ]
@@ -196,7 +196,7 @@ def handle_message(event):
                 text = 'hotel 3',
                 actions=[
                     URITemplateAction(
-                        label='旅館為：'+str(hotel_df.iloc[2,0]),
+                        label='評分為：'+str(hotel_df.iloc[2,2]),
                         uri=hotel_df.iloc[2,1]
                     )
                 ]
