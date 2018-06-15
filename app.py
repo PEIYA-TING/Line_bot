@@ -228,8 +228,10 @@ def handle_message(event):
         template = carousel_template
     )
     
-    
-    line_bot_api.reply_message(event.reply_token, template_message)
+    try:
+        line_bot_api.reply_message(event.reply_token, template_message)
+    except:
+        line_bot_api.reply_message(event.reply_token,text="Error")
 
 import os
 if __name__ == "__main__":
