@@ -214,9 +214,9 @@ def handle_message(event):
             ]     
         )
 
-        print("===================================")
-        print(len(template_message))
-        print("===================================")
+        # print("===================================")
+        # print(len(template_message))
+        # print("===================================")
 
     except:
         error_message = "Error"
