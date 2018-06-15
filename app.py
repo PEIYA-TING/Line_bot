@@ -140,79 +140,79 @@ def handle_message(event):
     # try:
 
         # length = min(len(name_list),len(prices_list),len(star),len(link),len(img_url))
-        length = min(len(name_list),len(star),len(link),len(img_url))
+    length = min(len(name_list),len(star),len(link),len(img_url))
 
 
-        print("===================================")
-        print(length)
-        print("===================================")
+    print("===================================")
+    print(length)
+    print("===================================")
 
-        end = length - 2
-        name_list = name_list[0:end]
-        # prices_list = prices_list[0:end]
-        url_list = url_list[0:end]
-        score_list = score_list[0:end]
-        img_list = img_list[0:end]
+    end = length - 2
+    name_list = name_list[0:end]
+    # prices_list = prices_list[0:end]
+    url_list = url_list[0:end]
+    score_list = score_list[0:end]
+    img_list = img_list[0:end]
 
-        hotel_df = pd.DataFrame({"Hotel_name":name_list,"Hotel_url":url_list,"Hotel_score":score_list,"Hotel_pic":img_list}) #"Hotel_price":prices_list,
-        hotel_df = hotel_df.sort_values(by = ['Hotel_score'],ascending=False).reset_index(drop=True)
+    hotel_df = pd.DataFrame({"Hotel_name":name_list,"Hotel_url":url_list,"Hotel_score":score_list,"Hotel_pic":img_list}) #"Hotel_price":prices_list,
+    hotel_df = hotel_df.sort_values(by = ['Hotel_score'],ascending=False).reset_index(drop=True)
 
-        hotel_df = hotel_df[:6]
-        hotel_df = hotel_df[["Hotel_name","Hotel_url","Hotel_score","Hotel_pic"]]
-        print(hotel_df.iloc[1,0])
-        print(hotel_df.iloc[1,1])
-        print(hotel_df.iloc[1,2])
-        print(hotel_df.iloc[1,3])
+    hotel_df = hotel_df[:6]
+    hotel_df = hotel_df[["Hotel_name","Hotel_url","Hotel_score","Hotel_pic"]]
+    print(hotel_df.iloc[5,0])
+    print(hotel_df.iloc[5,1])
+    print(hotel_df.iloc[5,2])
+    print(hotel_df.iloc[5,3])
 
-        carousel_template = CarouselTemplate(
+    carousel_template = CarouselTemplate(
 
-            columns=[
-                CarouselColumn(
-                    thumbnail_image_url=hotel_df.iloc[0,3],
-                    title = hotel_df.iloc[0,0],
-                    text = 'hotel 1',
-                    actions=[
-                        URITemplateAction(
-                            label='旅館為：'+str(hotel_df.iloc[0,0])+'，評分為：'+str(hotel_df.iloc[0,2]),
-                            uri=hotel_df.iloc[0,1]
-                        )
-                    ]
-                ),
-                CarouselColumn(
-                    thumbnail_image_url=hotel_df.iloc[1,3],
-                    title = hotel_df.iloc[1,0],
-                    text = 'hotel 2',
-                    actions=[
-                        URITemplateAction(
-                            label='旅館為：'+str(hotel_df.iloc[1,0])+'，評分為：'+str(hotel_df.iloc[1,2]),
-                            uri=hotel_df.iloc[1,1]
-                        )
-                    ]
-                ),
-                CarouselColumn(
-                    thumbnail_image_url=hotel_df.iloc[2,3],
-                    title = hotel_df.iloc[2,0],
-                    text = 'hotel 3',
-                    actions=[
-                        URITemplateAction(
-                            label='旅館為：'+str(hotel_df.iloc[2,0])+'，評分為：'+str(hotel_df.iloc[2,2]),
-                            uri=hotel_df.iloc[2,1]
-                        )
-                    ]
-                )
-                # CarouselColumn(
-                #     thumbnail_image_url=hotel_df.iloc[3,3],
-                #     title = hotel_df.iloc[3,0],
-                #     text = 'hotel 4',
-                #     actions=[
-                #         URITemplateAction(
-                #             label='旅館為：'+str(hotel_df.iloc[3,0])+'，評分為：'+str(hotel_df.iloc[2,2]),
-                #             uri=hotel_df.iloc[3,1]
-                #         )
-                #     ]
-                # )
-            ]     
-        )
+        columns=[
+            CarouselColumn(
+                thumbnail_image_url=hotel_df.iloc[0,3],
+                title = hotel_df.iloc[0,0],
+                text = 'hotel 1',
+                actions=[
+                    URITemplateAction(
+                        label='旅館為：'+str(hotel_df.iloc[0,0])+'，評分為：'+str(hotel_df.iloc[0,2]),
+                        uri=hotel_df.iloc[0,1]
+                    )
+                ]
+            ),
+            CarouselColumn(
+                thumbnail_image_url=hotel_df.iloc[1,3],
+                title = hotel_df.iloc[1,0],
+                text = 'hotel 2',
+                actions=[
+                    URITemplateAction(
+                        label='旅館為：'+str(hotel_df.iloc[1,0])+'，評分為：'+str(hotel_df.iloc[1,2]),
+                        uri=hotel_df.iloc[1,1]
+                    )
+                ]
+            ),
+            CarouselColumn(
+                thumbnail_image_url=hotel_df.iloc[2,3],
+                title = hotel_df.iloc[2,0],
+                text = 'hotel 3',
+                actions=[
+                    URITemplateAction(
+                        label='旅館為：'+str(hotel_df.iloc[2,0])+'，評分為：'+str(hotel_df.iloc[2,2]),
+                        uri=hotel_df.iloc[2,1]
+                    )
+                ]
+            )
+            # CarouselColumn(
+            #     thumbnail_image_url=hotel_df.iloc[3,3],
+            #     title = hotel_df.iloc[3,0],
+            #     text = 'hotel 4',
+            #     actions=[
+            #         URITemplateAction(
+            #             label='旅館為：'+str(hotel_df.iloc[3,0])+'，評分為：'+str(hotel_df.iloc[2,2]),
+            #             uri=hotel_df.iloc[3,1]
+            #         )
+            #     ]
+            # )
+        ]     
+    )
 
         # print("===================================")
         # print(len(template_message))
