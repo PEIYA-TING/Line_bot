@@ -68,7 +68,9 @@ def handle_message(event):
     arg_group_children = input_str.split()[8]
     url = 'https://www.booking.com/searchresults.zh-tw.html?ss=\"' + quote(str(arg_ss)) + '\"&checkin_year=' + quote(str(arg_checkin_year)) + '&checkin_month=' + quote(str(arg_checkin_month)) + '&checkin_monthday=' + quote(str(arg_checkin_monthday)) + '&checkout_year=' + quote(str(arg_checkout_year)) +  '&checkout_month=' + quote(str(arg_checkout_month)) + '&ckeckout_monthday=' + quote(str(arg_ckeckout_monthday)) + '&group_adults=' + quote(str(arg_adults)) + '&group_children=' + quote(str(arg_group_children))
     ##
-
+    print("===================================")
+    print(url)
+    print("===================================")
     ####
     context = ssl._create_unverified_context()
 
