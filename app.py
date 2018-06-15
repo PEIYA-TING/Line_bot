@@ -157,7 +157,7 @@ def handle_message(event):
     hotel_df = hotel_df[:6]
     hotel_df = hotel_df[["Hotel_name","Hotel_url","Hotel_score","Hotel_pic"]]
 
-    Carousel_template = CarouselTemplate(
+    carousel_template = CarouselTemplate(
 
         columns=[
             CarouselColumn(
