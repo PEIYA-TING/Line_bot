@@ -159,10 +159,10 @@ def handle_message(event):
 
     hotel_df = hotel_df[:6]
     hotel_df = hotel_df[["Hotel_name","Hotel_url","Hotel_score","Hotel_pic"]]
-    print(hotel_df.iloc[5,0])
-    print(hotel_df.iloc[5,1])
-    print(hotel_df.iloc[5,2])
-    print(hotel_df.iloc[5,3])
+    print(hotel_df.iloc[0,0])
+    print(hotel_df.iloc[0,1])
+    print(hotel_df.iloc[0,2])
+    print(hotel_df.iloc[0,3])
 
     carousel_template = CarouselTemplate(
 
