@@ -185,18 +185,18 @@ def handle_message(event):
                         uri=hotel_df.iloc[1,1]
                     )
                 ]
+            ),
+            CarouselColumn(
+                thumbnail_image_url=hotel_df.iloc[2,3],
+                title = hotel_df.iloc[2,0],
+                text = 'hotel 3',
+                actions=[
+                    URITemplateAction(
+                        label='旅館為：'+str(hotel_df.iloc[2,0])+'，評分為：'+str(hotel_df.iloc[2,2]),
+                        uri=hotel_df.iloc[2,1]
+                    )
+                ]
             )
-            # CarouselColumn(
-            #     thumbnail_image_url=hotel_df.iloc[2,3],
-            #     title = hotel_df.iloc[2,0],
-            #     text = 'hotel 3',
-            #     actions=[
-            #         URITemplateAction(
-            #             label='旅館為：'+str(hotel_df.iloc[2,0])+'，評分為：'+str(hotel_df.iloc[2,2]),
-            #             uri=hotel_df.iloc[2,1]
-            #         )
-            #     ]
-            # )
         ]     
     )
 
