@@ -158,7 +158,7 @@ def handle_message(event):
     hotel_df = hotel_df[["Hotel_name","Hotel_url","Hotel_score","Hotel_pic"]]
 
     Carousel_template = CarouselTemplate(
-        alt_text='最推薦的六個訂房',
+
         columns=[
             CarouselColumn(
                 thumbnail_image_url=hotel_df.iloc[0,3],
@@ -166,13 +166,34 @@ def handle_message(event):
                 text = 'hotel 1',
                 actions=[
                     URITemplateAction(
-                        label='旅館為：'+str(hotel_df.iloc[0,0]),
+                        label='旅館為：'+str(hotel_df.iloc[0,0])+'，評分為：'str(hotel_df.iloc[0,2]),
                         uri=hotel_df.iloc[0,1]
+                    )
+                ]
+            ),
+            CarouselColumn(
+                thumbnail_image_url=hotel_df.iloc[1,3],
+                title = hotel_df.iloc[1,0],
+                text = 'hotel 2',
+                actions=[
+                    URITemplateAction(
+                        label='旅館為：'+str(hotel_df.iloc[1,0])+'，評分為：'str(hotel_df.iloc[1,2]),
+                        uri=hotel_df.iloc[1,1]
+                    )
+                ]
+            ),
+            CarouselColumn(
+                thumbnail_image_url=hotel_df.iloc[2,3],
+                title = hotel_df.iloc[2,0],
+                text = 'hotel 3',
+                actions=[
+                    URITemplateAction(
+                        label='旅館為：'+str(hotel_df.iloc[2,0])+'，評分為：'str(hotel_df.iloc[2,2]),
+                        uri=hotel_df.iloc[2,1]
                     )
                 ]
             )
         ]     
-
     )
 
     ##################
@@ -187,9 +208,12 @@ def handle_message(event):
     ####
     # Carousel_template = hotel_df.iloc[0,3]
     # message = TextSendMessage(text=output)
-    line_bot_api.reply_message(
-        event.reply_token,
-        Carousel_template) #message #Carousel_template
+    template_message = TemplateSendMessage(
+            alt_text = '距離最近的六間旅館', 
+            template = carousel_template
+    )
+    
+    line_bot_api.reply_message(event.reply_token, template_message)
 
 import os
 if __name__ == "__main__":
