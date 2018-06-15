@@ -232,7 +232,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, template_message)
     except:
         error_message = "Error"
-        line_bot_api.reply_message(event.reply_token,error_message)
+        message = TextSendMessage(text=error_message)
+        line_bot_api.reply_message(event.reply_token,message)
 
 import os
 if __name__ == "__main__":
