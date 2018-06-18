@@ -233,7 +233,19 @@ def handle_message(event):
     except:
         error_message = "很抱歉，查無資料!"
         message = TextSendMessage(text=error_message)
-        line_bot_api.reply_message(event.reply_token,message)
+        line_bot_api.reply_message(event.reply_token,message)\
+
+        msg = Message(api_key="bf6041f2-134c-4c38-a42e-6540684311d0",
+              type="user",
+              platform="Line",
+              version="1.0",
+              user_id=event.source.user_id,
+              message=error_message,
+              intent="LinebotSearchPostion",  
+              not_handled=False,           
+              )            
+        resp = msg.send()
+
 
     ##################
     # output = ""
@@ -253,6 +265,17 @@ def handle_message(event):
     )
     
     line_bot_api.reply_message(event.reply_token, template_message)
+
+    msg = Message(api_key="bf6041f2-134c-4c38-a42e-6540684311d0",
+              type="user",
+              platform="Line",
+              version="1.0",
+              user_id=event.source.user_id,
+              message=event.message.text,
+              intent="LinebotSearchPostion",  
+              not_handled=True,           
+              )            
+    resp = msg.send()
 
 
 import os
