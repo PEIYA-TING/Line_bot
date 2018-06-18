@@ -7,6 +7,7 @@ import pandas as pd
 from urllib.parse import quote
 import urllib.request
 import ssl
+from chatbase import Message
 
 from flask import Flask, request, abort
 

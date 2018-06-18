@@ -7,3 +7,4 @@ lxml
 pandas
 Scrapy
 urllib3
+git+git://github.com/google/chatbase-python.git
