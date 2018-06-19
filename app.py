@@ -59,7 +59,7 @@ def handle_message(event):
 
     input_str = event.message.text
 
-
+    print(profile.display_name)
     ##
     arg_ss = input_str.split()[0]
     arg_checkin_year = input_str.split()[1]
