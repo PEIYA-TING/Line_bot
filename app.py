@@ -243,7 +243,7 @@ def handle_message(event):
               user_id=event.source.user_id,
               message=error_message,
               intent="LinebotSearchPostion",  
-              not_handled=False,           
+              not_handled=True,           
               )            
         resp = msg.send()
 
@@ -274,7 +274,7 @@ def handle_message(event):
               user_id=event.source.user_id,
               message=event.message.text,
               intent="LinebotSearchPostion",  
-              not_handled=True,           
+              not_handled=False,           
               )            
     resp = msg.send()
 
