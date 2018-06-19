@@ -9,6 +9,7 @@ import urllib.request
 import ssl
 from chatbase import Message
 
+
 from flask import Flask, request, abort
 
 from linebot import (
@@ -22,7 +23,7 @@ from linebot.exceptions import (
 # )
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, ImageSendMessage, LocationMessage, TemplateSendMessage,
-    ButtonsTemplate, CarouselTemplate, PostbackTemplateAction, CarouselColumn , URITemplateAction
+    ButtonsTemplate, CarouselTemplate, PostbackTemplateAction, CarouselColumn , URITemplateAction , SourceUser
 )
 
 app = Flask(__name__)
@@ -53,6 +54,8 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+
+    profile = line_bot_api.get_profile(event.source.user_id)
 
     input_str = event.message.text
 
@@ -240,7 +243,7 @@ def handle_message(event):
               type="user",
               platform="Line",
               version="1.0",
-              user_id=event.source.user_id,
+              user_id=profile.display_name,
               message=error_message,
               intent="LinebotSearchPostion",  
               not_handled=True,           
@@ -271,7 +274,7 @@ def handle_message(event):
               type="user",
               platform="Line",
               version="1.0",
-              user_id=event.source.user_id,
+              user_id=profile.display_name,
               message=event.message.text,
               intent="LinebotSearchPostion",  
               not_handled=False,           
