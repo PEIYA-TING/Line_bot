@@ -235,7 +235,7 @@ def handle_message(event):
         )
 
     except:
-        error_message = "很抱歉，查無資料!"
+        error_message = "天啊!出錯了!\n您可能是遇到了以下問題。\n1.你的指令打錯了。\n指令是：訂房地點(ex:桃園) 訂房日期(ex:2018 6 30) 退房日期(ex:2018 7 2) 訂房人數，分別為大人個數與小孩個數(ex:4 2)\n每個之間都有空格噢\n範例：桃園 2018 6 30 2018 7 2 4 2\n2.您所蒐尋的日期還未提供訂房資訊，要再等一等噢!\n3.沒有相關訂房資訊，建議您換個關鍵字。\n"
         message = TextSendMessage(text=error_message)
         line_bot_api.reply_message(event.reply_token,message)\
 
