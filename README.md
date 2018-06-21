@@ -21,7 +21,7 @@ Github：https://github.com/PEIYA-TING/Line_bot
 4. 訂房人數(大人、小孩)人數
 
 - Line Bot 輸出：
-以價格為第一順位，評價為第二順位，進行訂房推薦的排序，並將分析後的結果輸出於Linebot給使用者作參考。
+以評價為順位，進行訂房推薦的排序，並將分析後的結果輸出於Linebot給使用者作參考。
 
 ## Line Bot 影片介紹
 
@@ -31,4 +31,11 @@ Youtube URL：https://www.youtube.com/watch?v=qZbiVmqRJjE
 
 ![image](https://github.com/PEIYA-TING/Line_bot/blob/master/QR.PNG)
 
+## Line Bot Demo結果
+
+- 使用者輸入正確，並回傳推薦訂房：
+![image](https://github.com/PEIYA-TING/Line_bot/blob/master/DEMO1.jpg)
+
+- 使用者輸入錯誤或查無訂房時，回傳提醒訊息：
+![image](https://github.com/PEIYA-TING/Line_bot/blob/master/DEMO2.jpg)
 
